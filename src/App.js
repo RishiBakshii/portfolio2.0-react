@@ -1,7 +1,7 @@
 import './App.css';
 import { Footer } from './components/Footer';
 import { Navbar } from './components/Navbar';
-import {Box,styled,Typography,Avatar,ImageList,ImageListItem,Stack} from '@mui/material'
+import {Box,styled,Typography,Avatar,ImageList,ImageListItem,Stack,Grid} from '@mui/material'
 import photo from './assets/photo.png'
 import back from './assets/back.svg'
 import maybe from './assets/maybe.jpg'
@@ -11,10 +11,17 @@ import {motion,useInView,useAnimate} from 'framer-motion'
 import { useEffect, useRef } from 'react';
 import about from './assets/about.svg'
 import goDownAnimation from './assets/animations/goDownAnimation.json'
+import collaborations from './assets/animations/collaborations.json'
+import ai from './assets/animations/ai.json'
+import laptopMug from './assets/animations/laptopMug.json'
 import { TimelineMui } from './components/TimelineMui';
 import { ImageListMui } from './components/ImageListMui';
 import VanillaTilt from 'vanilla-tilt'
-
+import { ProjectCard } from './components/ProjectCard';
+import { AboutCard } from './components/AboutCard';
+import todochampion from './assets/projectImages/todochampion.png'
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
 
 const MainSection=styled('main')({
@@ -49,7 +56,7 @@ const ContentBox=styled(Box)({
 
 
 const RightBox=styled(Box)({
-  flex:.3,
+  flex:.5,
   display:"flex",
   justifyContent:"center",
   alignItems:"center",
@@ -69,17 +76,15 @@ const AboutSection=styled("section")({
   padding:"2rem 15vw"
 })
 
-
 const ProjectSection=styled('section')({
   width:"100%",
   display:'flex',
-  justifyContent:'flex-start',
+  justifyContent:'space-between',
   alignItems:"flex-start",
   backgroundColor:"black",
   color:"white",
-  flexDirection:"row",
+  flexDirection:"column",
   padding:"2rem 15vw",
-  height:"40rem"
 })
 
 
@@ -92,6 +97,8 @@ function App() {
         glare: true,
         'max-glare': 0.1,
       });
+
+    Aos.init({duration:800})
 },[])
   return (
     <>
@@ -102,9 +109,9 @@ function App() {
       <HomeSection>
 
         <ContentBox>
-          <Avatar className='card'  alt="RishiBakshi-photo" src={`${close}`} sx={{width:"10rem",height:"10rem",marginBottom:"2rem",boxShadow:"0 0 1rem 1px white"}}/>
-          <Typography  variant='h2' fontWeight={900}>Hello I'm RishiBakshi</Typography>
-          <Typography  gutterBottom variant='h2' fontWeight={300}>A Full stack developer/Data Scientist</Typography>                
+          <Avatar data-aos={'fade'} data-aos-delay={500}  alt="RishiBakshi-photo" src={`${close}`} sx={{width:"10rem",height:"10rem",marginBottom:"2rem",boxShadow:"0 0 1rem 1px white"}}/>
+          <Typography data-aos={'fade'} data-aos-delay={1000} variant='h2' fontWeight={900}>Hello I'm RishiBakshi</Typography>
+          <Typography data-aos={'fade'} data-aos-delay={1800} gutterBottom variant='h2' fontWeight={300}>A Full stack developer/Data Scientist</Typography>                
         </ContentBox>
 
 
@@ -114,40 +121,73 @@ function App() {
 
       </HomeSection>
 
-        <AboutSection>
+      <AboutSection>
+            
+            {/* heading */}
+            <Stack flex={1} justifyContent={'flex-start'} alignItems={"flex-start"}>
 
-          <Stack flex={1} justifyContent={'flex-start'} alignItems={"flex-start"}>
+                <Typography data-aos={'fade'} gutterBottom mt={15} variant='h3' fontWeight={900}>Know About Me</Typography>
 
-          <Typography gutterBottom mt={15} variant='h3' fontWeight={900}>Know About Me</Typography>
+                  <Box data-aos='flip-left'> 
+                    <TimelineMui/>
+                  </Box>
 
-          <Box>
-            <TimelineMui/>
-          </Box>
-          </Stack>
 
-          <Stack bgcolor={'#000000'} borderRadius={".8rem"} box flex={1} height={'100%'} padding={4}>
+            </Stack>
 
-              <Typography lineHeight={'1.8rem'} fontSize={'1.2rem'} variant='p'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat et quae illo incidunt provident. Et eos recusandae dolore officiis illum fugit accusantium sit at aperiam ab quis corporis ex atque, sint voluptate obcaecati quibusdam rem natus saepe. Quas excepturi odit minus! Esse veniam, laudantium saepe modi et, doloremque enim nemo eaque, mollitia provident adipisci eos officiis consequuntur. Ex illo tempore dignissimos accusantium fugiat ipsum ad in, reprehenderit obcaecati beatae nobis, veniam amet, alias odit. Expedita, porro consequatur at enim dolorem laborum, eligendi quia non dicta incidunt autem dolores itaque ratione, placeat iste consequuntur corporis error iure ducimus minima quos corrupti modi explicabo! Recusandae quam deleniti dolorem assumenda mollitia dicta delectus, minus optio rerum consectetur, labore voluptatibus! Excepturi ipsa assumenda odit quia praesentium voluptatum quaerat optio tenetur! Sit animi ullam expedita ad suscipit voluptatum, aut, aperiam saepe blanditiis sed reprehenderit dolorem eveniet! Debitis tempora eveniet placeat. Fugiat consectetur quas itaque tenetur quaerat similique recusandae natus atque amet error ducimus nam accusamus veritatis rem hic, neque nobis. Illum commodi distinctio quis porro odit qui quidem magni quaerat numquam, aperiam beatae nam autem ea expedita reprehenderit repellendus. Ut, a corporis rem quibusdam laudantium accusamus ipsam corrupti. Tempore blanditiis porro placeat ullam pariatur, error velit amet, beatae eveniet sit architecto ducimus, iusto ad tempora totam debitis nemo consequuntur? Excepturi perspiciatis veritatis obcaecati, exercitationem laboriosam tempore labore, nesciunt quo ullam suscipit animi esse? Eum recusandae sunt ipsam modi earum! Saepe ducimus minus dolor laboriosam, earum dignissimos impedit enim fuga non numquam? Quasi, vero consequatur. Non ipsam temporibus molestias. Optio animi labore, eveniet quas tenetur provident deserunt incidunt earum adipisci quam! Rerum obcaecati consequuntur libero assumenda, a ratione. Officiis magnam aperiam temporibus laudantium nisi exercitationem iste tenetur! Explicabo accusamus esse exercitationem praesentium rerum maiores voluptates deserunt pariatur molestiae ipsum aliquid vel incidunt, sapiente totam soluta ea?</Typography>
+            {/* about cards  */}
+          <Stack flex={1.4} spacing={2}>
+              
+            <AboutCard heading={'Introduction'} animation={'fade'} delay={0} content={"Hello, I'm Rishi, a seasoned data scientist and software developer with over 2 years of hands-on experience in the world of data-driven solutions. My journey in this dynamic field has taken me through every stage of the data science lifecycle, from raw data to actionable insights. Let me take you through my diverse skill set and accomplishments"}/>  
+            <AboutCard heading={'Data Science Expertise'} animation={'fade'} delay={0} content={"I excel in the meticulous art of data wrangling, transforming raw and messy data into structured gold. My proficiency in data cleaning and pre-processing ensures that every project begins with a solid foundation. Through exploratory data analysis (EDA), I unravel hidden patterns, outliers, and correlations that inform the direction of the project."}/>
+            <AboutCard heading={"Feature Engineering and Modeling"} animation={'fade'} delay={0} content={"Crafting meaningful features is my forte. I specialize in innovative feature transformations and extractions that elevate model performance. My statistical modeling skills enable me to build predictive models that capture the essence of the underlying data distribution. I'm no stranger to the intricacies of hyperparameter tuning, ensuring that my models are finely tuned for optimal performance"}/>
+            <AboutCard heading={"Project Portfolio"} animation={'fade'} delay={0} content={"I've conceptualized, developed, and deployed a range of end-to-end projects that showcase my capabilities. From a sophisticated movie recommendation system and sentiment analysis tool to practical solutions like laptop price prediction and student performance forecasting, I've turned complex concepts into user-friendly applications."}/>
+            <AboutCard heading={"Versatile Software Developer"} animation={'fade'} delay={0} content={"My skills extend beyond data science. I possess a deep understanding of HTML, CSS, and JavaScript, enabling me to craft interactive and visually appealing front-end experiences. My proficiency in React and React Material-UI (MUI) ensures that user interfaces are modern, intuitive, and responsive."}/>
+            <AboutCard heading={"Backend Mastery"} animation={'fade'} delay={0} content={"In the backend realm, I'm well-versed in a variety of technologies, including Flask, Django, and Express. I seamlessly integrate these frameworks to bring life to my applications. My expertise extends to databases like MongoDB, MySQL, and PostgreSQL, ensuring that data storage and retrieval are efficient and secure."}/>
+            <AboutCard heading={"AI and Deep Learning"} animation={'fade'} delay={0} content={`I've delved into the world of deep learning and neural networks, harnessing the power of AI for complex tasks. My grasp of neural network architectures empowers me to tackle intricate problems, from image recognition to natural language processing. My passion for data-driven insights, combined with my proficiency in software development, has shaped me into a well-rounded professional. I thrive on challenges, relentlessly pursuing excellence in every project I undertake. Whether it's extracting knowledge from data, crafting elegant user interfaces, or implementing robust backend systems, I'm always eager to explore new horizons and create meaningful solutions.`}/>
+            <AboutCard heading={"Open For Collaborations"} animation={'fade'} delay={0} content={"Let's collaborate to turn ideas into reality. Feel free to reach out for discussions, collaborations, or just a friendly chat about the ever-evolving landscape of data science and technology. Feel free to personalize and adjust the content according to your actual experiences and preferences."}/>
+
+
+            <Typography data-aos={'fade'} data-aos-delay={800} paddingTop={3} fontWeight={400} variant='h1'>Take A look at my projects🎉</Typography>
           </Stack>
 
           
+          
 
 
-        </AboutSection>
+      </AboutSection>
 
         <ProjectSection>
-            <Typography gutterBottom mt={15} variant='h3' fontWeight={900}>My Latest Work</Typography>
 
+              <Box>
+
+              <Typography gutterBottom mt={15} variant='h3' fontWeight={900} data-aos={'fade'}>My Latest Work - Mern Apps</Typography>
+              </Box>
+
+              <Grid mt={10} container gap={4} justifyContent={'center'} alignContent={'center'}>
+                <ProjectCard name={'Todo Champion'} img={todochampion} desc={'TodoChamption is a full stack web application where an user can signup and make their todos and do the CRUD operations. It provides authenticated session with the help of json web tokens.'}/>
+              </Grid>
+
+              <Box>
+
+              <Typography gutterBottom mt={15} variant='h3' fontWeight={900} data-aos={'fade'}>Data Driven Apps</Typography>
+              </Box>
+
+              <Grid mt={10} container gap={4} justifyContent={'center'} alignContent={'center'}>
+                <ProjectCard/>
+                <ProjectCard/>
+                <ProjectCard/>
+                <ProjectCard/>
+                <ProjectCard/>
+                <ProjectCard/>
+              </Grid>
+
+
+
+            
 
         </ProjectSection>
 
-
-
-
-{/* 
-      <AboutSection>
-        <Typography mt={2} variant='h4' fontWeight={"400"}>Know About me</Typography>
-      </AboutSection> */}
 
     </MainSection>
     
