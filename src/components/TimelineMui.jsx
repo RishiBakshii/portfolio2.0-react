@@ -8,7 +8,7 @@ import TimelineDot from '@mui/lab/TimelineDot';
 
 export const TimelineMui = () => {
   return (
-    <Timeline position="right" sx={{minWidth:"20rem"}}>
+    <Timeline position="right" sx={{minWidth:"18rem"}}>
     <TimelineItem>
       <TimelineSeparator>
         <TimelineDot variant="outlined" />

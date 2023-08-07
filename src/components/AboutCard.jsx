@@ -19,10 +19,10 @@ export const AboutCard = ({ heading, content,animation,delay}) => {
 
   return (
     <CustomComponent data-aos={animation} data-aos-delay={delay}>
-      <Typography gutterBottom variant="h4">
+      <Typography gutterBottom variant="h3">
         {heading}
       </Typography>
-      <Typography lineHeight={"1.8rem"} fontSize={"1.2rem"} variant="p">
+      <Typography lineHeight={"1.8rem"} fontSize={"1.2rem"} variant="body1">
         {content}
       </Typography>
     </CustomComponent>

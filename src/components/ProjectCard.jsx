@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 
 import React from 'react'
 
-export const ProjectCard = ({name,img,desc}) => {
+export const ProjectCard = ({name,img,desc,githubLink,deploymentLink}) => {
   return (
     <Card sx={{maxWidth: 345 }}>
     <CardMedia
@@ -20,13 +20,13 @@ export const ProjectCard = ({name,img,desc}) => {
       <Typography gutterBottom variant="h5" component="div">
         {name}
       </Typography>
-      <Typography variant="body2" color="text.secondary">
+      <Typography variant="body1" color="text.secondary">
         {desc}
       </Typography>
     </CardContent>
     <CardActions>
-      <Button size="small">Github</Button>
-      <Button size="small">View Deployment</Button>
+      <Button size="small" target='_blank' href={githubLink}>Github</Button>
+      <Button size="small" target='_blank' href={deploymentLink}>View Deployment</Button>
     </CardActions>
   </Card>
   )

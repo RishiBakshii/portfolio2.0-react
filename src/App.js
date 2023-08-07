@@ -1,7 +1,7 @@
 import './App.css';
 import { Footer } from './components/Footer';
 import { Navbar } from './components/Navbar';
-import {Box,styled,Typography,Avatar,ImageList,ImageListItem,Stack,Grid} from '@mui/material'
+import {Box,styled,Typography,Avatar,ImageList,ImageListItem,Stack,Grid, useMediaQuery} from '@mui/material'
 import photo from './assets/photo.png'
 import back from './assets/back.svg'
 import maybe from './assets/maybe.jpg'
@@ -22,6 +22,8 @@ import { AboutCard } from './components/AboutCard';
 import todochampion from './assets/projectImages/todochampion.png'
 import Aos from 'aos';
 import 'aos/dist/aos.css'
+import theme from './theme'
+import goDownMouseWhite from './assets/animations/goDownMouseWhite.json'
 
 
 const MainSection=styled('main')({
@@ -32,17 +34,17 @@ const MainSection=styled('main')({
   flexDirection:"column",
 })
 
-const HomeSection=styled('section')({
-  backgroundColor:"black",
-  color:"white",
+const HomeSection=styled('section')(({theme})=>({
+  backgroundColor:theme.palette.primary.main,
+  color:theme.palette.text.primary,
   width:"100vw",
   display:"flex",
   justifyContent:"center",
   alignItems:"center",
   flexWrap:"wrap",
-  height:"52rem",
-  padding:"1rem"
-})
+  height:"90vh",
+  padding:"2vw 4vw",
+}))
 
 
 const ContentBox=styled(Box)({
@@ -51,7 +53,7 @@ const ContentBox=styled(Box)({
   alignItems:"center",
   flexDirection:"column",
   flex:1,
-  // backgroundColor:"green"
+  padding:"0 3vw"
 })
 
 
@@ -65,30 +67,34 @@ const RightBox=styled(Box)({
   height:"100%",
 })
 
-const AboutSection=styled("section")({
+const AboutSection=styled("section")(({theme})=>({
   width:"100%",
   display:'flex',
   justifyContent:'flex-start',
   alignItems:"flex-start",
-  backgroundColor:"#191919",
-  color:"white",
+  backgroundColor:theme.palette.secondary.main,
+  color:theme.palette.text.primary,
   flexDirection:"row",
-  padding:"2rem 15vw"
-})
+  padding:"2rem 4vw",
+  [theme.breakpoints.down("lg")]:{
+    flexDirection:"column"
+  }
+}))
 
-const ProjectSection=styled('section')({
+const ProjectSection=styled('section')(({theme})=>({
   width:"100%",
   display:'flex',
   justifyContent:'space-between',
   alignItems:"flex-start",
-  backgroundColor:"black",
-  color:"white",
+  backgroundColor:theme.palette.primary.main,
+  color:theme.palette.text.primary,
   flexDirection:"column",
-  padding:"2rem 15vw",
-})
+  padding:"2rem 4vw",
+}))
 
 
 function App() {
+  // const notLargeDevice=useMediaQuery((theme)=>theme.breakpoints.down('lg'))
 
   useEffect(()=>{
     VanillaTilt.init(document.querySelectorAll(".card"), {
@@ -109,13 +115,19 @@ function App() {
       <HomeSection>
 
         <ContentBox>
-          <Avatar data-aos={'fade'} data-aos-delay={500}  alt="RishiBakshi-photo" src={`${close}`} sx={{width:"10rem",height:"10rem",marginBottom:"2rem",boxShadow:"0 0 1rem 1px white"}}/>
-          <Typography data-aos={'fade'} data-aos-delay={1000} variant='h2' fontWeight={900}>Hello I'm RishiBakshi</Typography>
-          <Typography data-aos={'fade'} data-aos-delay={1800} gutterBottom variant='h2' fontWeight={300}>A Full stack developer/Data Scientist</Typography>                
+          <Avatar data-aos={'fade'} data-aos-delay={500}  alt="RishiBakshi-photo" src={`${close}`} sx={{ height:"10rem",width:"10rem",marginBottom:"2rem",boxShadow:"0 0 1rem 1px white"}}/>
+          <Box textAlign={"center"}>
+          <Typography data-aos={'fade'} data-aos-delay={1000} variant='h2'  fontWeight={900}>Hello I'm RishiBakshi</Typography>
+          <Typography data-aos={'fade'} data-aos-delay={1800} gutterBottom variant='h3' fontWeight={300}>A Full stack developer/Data Scientist</Typography>
+          </Box>                
+          <Box sx={{display:{xl:"none"}}}>
+
+          <Lottie animationData={goDownMouseWhite}></Lottie>
+          </Box>
         </ContentBox>
 
 
-        <RightBox>
+        <RightBox sx={{display:{xs:"none",sm:"none",md:"none",lg:"none",xl:"block"}}}>
             <ImageListMui/>
         </RightBox>
 
@@ -124,7 +136,7 @@ function App() {
       <AboutSection>
             
             {/* heading */}
-            <Stack flex={1} justifyContent={'flex-start'} alignItems={"flex-start"}>
+            <Stack flex={1}   justifyContent={'center'} alignItems={"center"}>
 
                 <Typography data-aos={'fade'} gutterBottom mt={15} variant='h3' fontWeight={900}>Know About Me</Typography>
 
@@ -148,7 +160,7 @@ function App() {
             <AboutCard heading={"Open For Collaborations"} animation={'fade'} delay={0} content={"Let's collaborate to turn ideas into reality. Feel free to reach out for discussions, collaborations, or just a friendly chat about the ever-evolving landscape of data science and technology. Feel free to personalize and adjust the content according to your actual experiences and preferences."}/>
 
 
-            <Typography data-aos={'fade'} data-aos-delay={800} paddingTop={3} fontWeight={400} variant='h1'>Take A look at my projects🎉</Typography>
+            <Typography data-aos={'fade'} paddingTop={3} fontWeight={400} variant='h1'>Take A look at my projects🎉</Typography>
           </Stack>
 
           
@@ -170,16 +182,14 @@ function App() {
 
               <Box>
 
-              <Typography gutterBottom mt={15} variant='h3' fontWeight={900} data-aos={'fade'}>Data Driven Apps</Typography>
+              <Typography gutterBottom mt={15} variant='h3' fontWeight={900} data-aos={'fade'}>Data Driven Apps- ML DL</Typography>
               </Box>
 
               <Grid mt={10} container gap={4} justifyContent={'center'} alignContent={'center'}>
-                <ProjectCard/>
-                <ProjectCard/>
-                <ProjectCard/>
-                <ProjectCard/>
-                <ProjectCard/>
-                <ProjectCard/>
+                <ProjectCard name={"Movie Recommender System"} img={"https://github.com/RishiBakshii/Movie-Recommender-System/blob/main/backend/static/Images/ui%20image%201.png?raw=true"} desc={'Flickfinder -MovieMatch is a movie recommendation webapp where one can choose from a list of 5000 movies and based on selection this will recommend you 5 movies followed by their details and starcast'}/>
+                <ProjectCard name={'Bike Price Prediction'} img={"https://rishibakshii.github.io/portfolio/assets/project-Covers/Your%20paragraph%20text%20(2).png"} desc={"A Flask Web application powered by XGBoost that predicts the prices of Bikes at an accuracy of 93%"}/>
+                <ProjectCard name={'Laptop Price Predictor'} img={"https://rishibakshii.github.io/portfolio/assets/project-Covers/LAPTOP%20PRICE%20PREDICTOR.png"} desc={"A Flask Powered Web Application which predicts the price of a laptop based on different configurations"}/>
+                <ProjectCard name={"Student performance predictor"} img={"https://rishibakshii.github.io/portfolio/assets/project-Covers/StudentExamPerformancePredictor.png"} desc={"Flask Powered web application that follows a formal structure of a data science project with modular programming and pipelines"}/>
               </Grid>
 
 

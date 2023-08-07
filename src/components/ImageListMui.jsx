@@ -25,37 +25,37 @@ export const ImageListMui = () => {
     <ImageList variant="quilted"  gap={10}>
           
     <ImageListItem data-aos={'fade'} data-aos-delay={800} sx={{backgroundColor:"",padding:"1rem",transform: "perspective(1000px) rotateX(358deg) rotateY(346deg) scale3d(1, 1, 1)",textAlign:"left"}}>
-      <div>
+      <Typography variant='body1'>
       The passion i feel for making data driven applications, extracting hidden insights from data through detailed analysis that solves a buisness problem is exactly what i live for
-      </div>
+      </Typography>
     </ImageListItem>
 
     <ImageListItem data-aos={'fade'} data-aos-delay={4000} sx={{padding:"1rem"}}>
-      <div>
+      <Typography variant='body1'>
       As being a self learner exploring new topics everyday and the thought of gaining expertise in the field of data science is the reason
-      </div>
+      </Typography>
     </ImageListItem>
 
    
 
     <ImageListItem data-aos={'fade'} data-aos-delay={100}  sx={{padding:"1rem",transform: "perspective(1000px) rotateX(-11.56deg) rotateY(-16.65deg) scale3d(1, 1, 1)"}}>
-      <div>
+      <Typography variant='body1'>
       In-depth Knowledge of Machine learning algorithms , Data Cleaning, Data Visualization, Feature Engineering, Predictive Modeling and Statistical Analysis. "Currently Exploring More about Deep learning and various neural networks."
-      </div>
+      </Typography>
     </ImageListItem>
     
     <ImageListItem data-aos={'fade'} data-aos-delay={200}  sx={{backgroundColor:"",padding:"1rem",transform:"perspective(1000px) rotateX(11.56deg) rotateY(16.65deg) scale3d(1, 1, 1)"}}>
-      <div>
+      <Typography variant='body1'>
         A MERN STACK DEVELOPER with expericnece in building full stack apps.I know React, MongoDB, Express, Node, MATERIAL UI
-      </div>
+      </Typography>
     </ImageListItem>
 
 
     {/* animation */}
     <ImageListItem sx={{padding:"1rem"}} data-aos={"fade"} data-aos-delay={2000}>
-      <div>
+      <Typography>
         <Lottie animationData={goDownWhite}></Lottie>
-      </div>
+      </Typography>
     </ImageListItem>
 
 </ImageList>
