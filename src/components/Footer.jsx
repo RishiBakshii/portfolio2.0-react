@@ -26,9 +26,9 @@ export const Footer = () => {
 
         <Stack>
             <Typography gutterBottom variant='h6'>Connect With Me</Typography>
-            <Button sx={{textTransform:"none"}} color='buttonColors' variant='outlined' startIcon={<Instagram/>}>rishibakshi</Button>
-            <Button sx={{textTransform:"none"}} color='buttonColors' variant='outlined' startIcon={<GitHub/>}>RishiBakshii</Button>
-            <Button sx={{textTransform:"none"}} color='buttonColors' variant='outlined' startIcon={<LinkedIn/>}>rishibakshi</Button>
+            <Button href='https://www.instagram.com/rishibakshii/' target='_blank' sx={{textTransform:"none"}} color='buttonColors' variant='outlined' startIcon={<Instagram/>}>rishibakshi</Button>
+            <Button href='https://github.com/RishiBakshii'  target="_blank" sx={{textTransform:"none"}} color='buttonColors' variant='outlined' startIcon={<GitHub/>}>RishiBakshii</Button>
+            <Button href='https://www.linkedin.com/in/rishi-bakshi-75b224271/'   target="_blank" sx={{textTransform:"none"}} color='buttonColors' variant='outlined' startIcon={<LinkedIn/>}>rishibakshi</Button>
         </Stack>
 
         <Stack>
