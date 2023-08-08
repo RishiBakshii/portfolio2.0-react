@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio2.0-react/static/css/main.fc0706bd.css",
-    "main.js": "/portfolio2.0-react/static/js/main.dba8ef5f.js",
+    "main.js": "/portfolio2.0-react/static/js/main.5f69e556.js",
     "static/media/photo.png": "/portfolio2.0-react/static/media/photo.03d472f4190dcd526dfd.png",
     "static/media/maybe.jpg": "/portfolio2.0-react/static/media/maybe.8fe031f702d837918f1f.jpg",
     "static/media/todochampion.png": "/portfolio2.0-react/static/media/todochampion.a20cda64a1bd7e536839.png",
@@ -10,10 +10,10 @@
     "static/media/back.svg": "/portfolio2.0-react/static/media/back.f370bab4c43e6b0b6ba6804f1b1d2110.svg",
     "static/media/about.svg": "/portfolio2.0-react/static/media/about.25a77d1336b582f7d5fd9885589f904d.svg",
     "main.fc0706bd.css.map": "/portfolio2.0-react/static/css/main.fc0706bd.css.map",
-    "main.dba8ef5f.js.map": "/portfolio2.0-react/static/js/main.dba8ef5f.js.map"
+    "main.5f69e556.js.map": "/portfolio2.0-react/static/js/main.5f69e556.js.map"
   },
   "entrypoints": [
     "static/css/main.fc0706bd.css",
-    "static/js/main.dba8ef5f.js"
+    "static/js/main.5f69e556.js"
   ]
 }
