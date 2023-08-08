@@ -177,7 +177,7 @@ function App() {
               </Box>
 
               <Grid mt={10} container gap={4} justifyContent={'center'} alignContent={'center'}>
-                <ProjectCard name={'Todo Champion'} img={todochampion} desc={'TodoChamption is a full stack web application where an user can signup and make their todos and do the CRUD operations. It provides authenticated session with the help of json web tokens.'}/>
+                <ProjectCard name={'Todo Champion'} img={todochampion} desc={'TodoChamption is a full stack web application where an user can signup and make their todos and do the CRUD operations. It provides authenticated session with the help of json web tokens.'} deploymentLink={"https://todomern-5kz3.onrender.com/"} githubLink={"https://github.com/RishiBakshii/TodoChampion-Mern"}/>
               </Grid>
 
               <Box>
