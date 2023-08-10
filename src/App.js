@@ -1,19 +1,10 @@
 import './App.css';
 import { Footer } from './components/Footer';
 import { Navbar } from './components/Navbar';
-import {Box,styled,Typography,Avatar,ImageList,ImageListItem,Stack,Grid, useMediaQuery} from '@mui/material'
-import photo from './assets/photo.png'
-import back from './assets/back.svg'
-import maybe from './assets/maybe.jpg'
+import {Box,styled,Typography,Avatar,Stack,Grid} from '@mui/material'
 import close from './assets/close.jpg'
 import Lottie from 'lottie-react'
-import {motion,useInView,useAnimate} from 'framer-motion'
-import { useEffect, useRef } from 'react';
-import about from './assets/about.svg'
-import goDownAnimation from './assets/animations/goDownAnimation.json'
-import collaborations from './assets/animations/collaborations.json'
-import ai from './assets/animations/ai.json'
-import laptopMug from './assets/animations/laptopMug.json'
+import { useEffect} from 'react';
 import { TimelineMui } from './components/TimelineMui';
 import { ImageListMui } from './components/ImageListMui';
 import VanillaTilt from 'vanilla-tilt'
@@ -22,7 +13,6 @@ import { AboutCard } from './components/AboutCard';
 import todochampion from './assets/projectImages/todochampion.png'
 import Aos from 'aos';
 import 'aos/dist/aos.css'
-import theme from './theme'
 import goDownMouseWhite from './assets/animations/goDownMouseWhite.json'
 
 

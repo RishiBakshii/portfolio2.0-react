@@ -1,8 +1,7 @@
 import React from 'react'
-import { Stack,Box,Button ,Typography} from '@mui/material'
+import { Stack,Button ,Typography} from '@mui/material'
 import styled from '@emotion/styled'
 import { Instagram,GitHub ,LinkedIn} from '@mui/icons-material'
-import { m } from 'framer-motion'
 
 
 const CustomFooter=styled('footer')({
