@@ -43,7 +43,7 @@ const HomeSection=styled('section')(({theme})=>({
   alignItems:"center",
   flexWrap:"wrap",
   height:"90vh",
-  padding:"2vw 4vw",
+  padding:"2vw 6vw",
 }))
 
 
@@ -75,7 +75,7 @@ const AboutSection=styled("section")(({theme})=>({
   backgroundColor:theme.palette.secondary.main,
   color:theme.palette.text.primary,
   flexDirection:"row",
-  padding:"2rem 4vw",
+  padding:"2rem 6vw",
   [theme.breakpoints.down("lg")]:{
     flexDirection:"column"
   }
@@ -89,7 +89,7 @@ const ProjectSection=styled('section')(({theme})=>({
   backgroundColor:theme.palette.primary.main,
   color:theme.palette.text.primary,
   flexDirection:"column",
-  padding:"2rem 4vw",
+  padding:"2rem 8vw",
 }))
 
 
@@ -122,7 +122,7 @@ function App() {
           </Box>                
           <Box sx={{display:{xl:"none"}}}>
 
-          <Lottie animationData={goDownMouseWhite}></Lottie>
+          <Lottie data-aos={'fade'} data-aos-delay={3000} animationData={goDownMouseWhite}></Lottie>
           </Box>
         </ContentBox>
 
