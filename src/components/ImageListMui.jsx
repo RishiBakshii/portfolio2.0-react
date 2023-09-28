@@ -43,8 +43,12 @@ export const ImageListMui = () => {
     </ImageListItem>
     
     <ImageListItem data-aos={'fade'} data-aos-delay={200}  sx={{backgroundColor:"",padding:"1rem",transform:"perspective(1000px) rotateX(11.56deg) rotateY(16.65deg) scale3d(1, 1, 1)"}}>
-      <Typography variant='body1'>
+      {/* <Typography variant='body1'>
         A MERN STACK DEVELOPER with expericnece in building full stack apps.I know React, MongoDB, Express, Node, MATERIAL UI
+      </Typography> */}
+      <Typography variant='body1' sx={{boxShadow:"0 0 1rem 1px white"}} borderRadius={'.4rem'} p={2}>
+        Developed a full stack social media application with authentication , comments , posting , likes and chat features.
+        Backend is written on flask and react is used as a frontend framework
       </Typography>
     </ImageListItem>
 

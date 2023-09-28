@@ -1,7 +1,7 @@
 import './App.css';
 import { Footer } from './components/Footer';
 import { Navbar } from './components/Navbar';
-import {Box,styled,Typography,Avatar,Stack,Grid} from '@mui/material'
+import {Box,styled,Typography,Avatar,Stack,Grid, Button} from '@mui/material'
 import close from './assets/close.jpg'
 import Lottie from 'lottie-react'
 import { useEffect} from 'react';
@@ -14,6 +14,13 @@ import todochampion from './assets/projectImages/todochampion.png'
 import Aos from 'aos';
 import 'aos/dist/aos.css'
 import goDownMouseWhite from './assets/animations/goDownMouseWhite.json'
+import logo512 from './assets/logo512.png'
+import theme from './theme';
+import BasicAccordion from './components/Accordian';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
 const MainSection=styled('main')({
@@ -109,6 +116,9 @@ function App() {
           <Box textAlign={"center"}>
           <Typography data-aos={'fade'} data-aos-delay={1000} variant='h2'  fontWeight={900}>Hello I'm RishiBakshi</Typography>
           <Typography data-aos={'fade'} data-aos-delay={1800} gutterBottom variant='h3' fontWeight={300}>A Full stack developer/Data Scientist</Typography>
+          <Typography data-aos={'fade'} data-aos-delay={2000} variant='h5' fontWeight={100}>Developed and Launched my own Social Media</Typography>
+          <Typography  variant='h6' fontWeight={900} color={"white"}><a style={{color:"white",textDecoration:"none"}} target='_blank' href='https://stangchat.com'>StangChat - A genz social media platform</a></Typography>
+          {/* <Button variant='contained'>Know More</Button> */}
           </Box>                
           <Box sx={{display:{xl:"none"}}}>
 
@@ -162,12 +172,107 @@ function App() {
         <ProjectSection>
 
               <Box>
-
-              <Typography gutterBottom mt={15} variant='h3' fontWeight={900} data-aos={'fade'}>My Latest Work - Mern Apps</Typography>
+                {/* <Typography gutterBottom mt={15} variant='h2' fontWeight={900} data-aos={'fade'}>My Latest Work</Typography> */}
+              </Box>
+              <Box justifySelf={'center'} alignSelf={'center'}>
+                <Typography gutterBottom mt={25} variant='h1' fontWeight={300} data-aos={'fade'}>Full Stack Web applications</Typography>
               </Box>
 
+              <Stack mt={15} width={"100%"} direction={'column'} justifyContent={'space-evenly'} alignItems={'center'}>
+
+                {/* logo area */}
+                <Stack justifyContent={'center'} alignItems={'center'} direction={'column'}>
+                  <img height={'200px'} src={logo512} alt="stangchat Logo" />
+                  <Typography mt={1} fontWeight={300} variant='h4'>StangChat</Typography>
+                </Stack>
+
+                {/* content part */}
+                <Stack spacing={1} mt={5} bgcolor={theme.palette.primary.main} width={"100%"} justifySelf={'flex-start'} alignSelf={'flex-start'}>
+                  {/* <Typography fontWeight={'600'} variant='h4'>What is StangChat?</Typography> */}
+                  <BasicAccordion heading={'What is StangChat'} content={`StangChat is an innovative social media platform that I had the privilege to develop and found. It's a comprehensive full-stack web application that leverages Flask for its robust backend and React for an intuitive frontend user experience`}/>
+                  
+
+
+                  <Accordion  sx={{bgcolor:theme.palette.secondary.main,color:"white"}}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon sx={{"color":'white'}} />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography variant='h4' fontWeight={400}>Authentication</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Stack variant='h6' fontWeight={400} direction={'column'} spacing={3}>
+
+            <Typography variant='h6'>
+                  "StangChat relies on JSON Web Tokens (JWT) for secure user authentication. Here's how it works, with the added role of middleware"
+            </Typography>
+
+            <Stack>
+              <Typography variant='h6' gutterBottom fontWeight={500}>1. JWT Authentication</Typography>
+                <Typography variant='h6' fontWeight={'300'}>
+                    Upon login, StangChat generates a JWT token, including user information, and sends it to the user's browser. This token is securely stored in an HTTP-only cookie.
+                </Typography>
+            </Stack>
+
+            <Stack>
+                <Typography variant='h6' gutterBottom fontWeight={500}>2. Middleware Verification:</Typography>
+                <Typography variant='h6' fontWeight={'300'}>
+                     With each incoming request, a middleware component plays a pivotal role. It intercepts the request before it reaches the endpoint. The middleware checks the token's authenticity using a secret key.
+                </Typography>
+            </Stack>
+
+            <Stack>
+                <Typography variant='h6' gutterBottom fontWeight={500}>3. Token Validation</Typography>
+                <Typography variant='h6' fontWeight={'300'}>
+                      If the token is valid and hasn't expired, the middleware allows the request to proceed to the endpoint. This means the user is authenticated and can access the requested resource.
+                </Typography>
+            </Stack>
+
+            <Stack>
+                <Typography variant='h6' gutterBottom fontWeight={500}>4. Immediate Redirection:</Typography>
+                <Typography variant='h6' fontWeight={'300'}>
+                    If the token is invalid or has expired, the middleware promptly redirects the user to the login screen. This ensures that only authenticated users can access StangChat's features, enhancing security.
+              </Typography>
+            </Stack>
+
+            <Stack>
+              <Typography variant='h6' gutterBottom fontWeight={500}>5. Enhanced Security:</Typography> 
+              <Typography variant='h6' fontWeight={'300'}>
+                The middleware layer adds an extra layer of security, preventing unauthorized access to StangChat's endpoints. It also ensures that users remain protected throughout their session.
+              </Typography>
+            </Stack>
+           
+            <Typography variant='h6'>
+                In summary, StangChat's authentication process combines JWT tokens, browser cookies, and middleware to provide secure and efficient user authentication. The middleware's role is critical in verifying token authenticity, allowing legitimate users access while swiftly redirecting unauthorized users to the login screen."
+            </Typography>
+
+          </Stack>
+        </AccordionDetails>
+      </Accordion>
+
+      <BasicAccordion heading={'Unlimited Posting'} content={`With StangChat, you can freely express yourself by creating and sharing posts. Whether through captivating stories, memorable photos, or thought-provoking text, your voice knows no limits. Post an unlimited number of videos, photos, and text effortlessly, ensuring your creativity shines through in various engaging formats.`}></BasicAccordion>
+      <BasicAccordion heading={'Real-time Post Likes Update'} content={`StangChat offers instant gratification with real-time updates when someone likes your post. This feature not only adds an element of excitement but also fosters a sense of connection with your audience. Plus, the like count increases in real-time as you and others appreciate the post, making the experience even more engaging and dynamic.`}/>
+      <BasicAccordion heading={"Who Liked Your Posts"} content={"Transparency is central to StangChat. By simply clicking on the like count, you can easily view the list of users who have appreciated your posts. This not only enables you to connect with your audience but also provides valuable insights into what resonates with them, fostering a more meaningful and interactive experience."}/>
+      <BasicAccordion heading={"Commenting on Posts"} content={`StangChat makes it simple to engage in conversations by commenting on posts. Join discussions, interact with others, and be part of a dynamic community where ideas flow, stories are shared, and connections thrive.`}/>
+      <BasicAccordion heading={"Comment Likes and Real-time Updates"} content={`Express appreciation for insightful comments with the ability to like them. Real-time updates ensure that you stay in the loop as others appreciate your contributions. You can also see who has liked your comments, enhancing the sense of connection.`}/>    
+      <BasicAccordion heading={"Giphy Integration in Comments"} content={`Spice up your conversations with Giphy integration in comments. Add a touch of humor or express your emotions with a wide array of GIFs to choose from.`}/>
+      <BasicAccordion heading={'Follow and Unfollow User Functionality'} content={`Tailor your StangChat experience by following users whose content you find interesting or inspiring. The unfollow feature allows you to curate your feed and stay connected with what matters most to you.`}/>
+      <BasicAccordion heading={"Explore Page"} content={`Discover new content and expand your horizons with the Explore Page. Here, you can explore a diverse range of public posts, making it easy to find fresh perspectives and engage with a broader community.`}/>
+      <BasicAccordion heading={'One-on-One Chat Functionality'} content={`StangChat values personal connections. With one-on-one chat functionality, you can have private conversations with other users, fostering genuine relationships within the community.`}/>
+      <BasicAccordion heading={"Smart Chat Sorting"} content={"StangChat enhances your chat experience with intelligent sorting. Chats are ranked based on unread messages, ensuring that the conversations you need to catch up on are always at the top of your chat section. This feature streamlines your interactions and helps you stay organized."}/>
+  
+                </Stack>
+
+                <Typography mt={5} variant='h6' fontWeight={400}>
+        These features collectively create a dynamic, engaging, and user-centric environment on StangChat, where users can freely express themselves, connect with others, and discover content that resonates with their interests. StangChat is more than just a social media platform; it's a vibrant and interactive community that values user experiences and connections."
+        </Typography>  
+
+              </Stack>
+
               <Grid mt={10} container gap={4} justifyContent={'center'} alignContent={'center'}>
-                <ProjectCard name={'Todo Champion'} img={todochampion} desc={'TodoChamption is a full stack web application where an user can signup and make their todos and do the CRUD operations. It provides authenticated session with the help of json web tokens.'} deploymentLink={"https://todomern-5kz3.onrender.com/"} githubLink={"https://github.com/RishiBakshii/TodoChampion-Mern"}/>
+                {/* <ProjectCard name={'Todo Champion'} img={todochampion} desc={'TodoChamption is a full stack web application where an user can signup and make their todos and do the CRUD operations. It provides authenticated session with the help of json web tokens.'} deploymentLink={"https://todomern-5kz3.onrender.com/"} githubLink={"https://github.com/RishiBakshii/TodoChampion-Mern"}/> */}
+                {/* <ProjectCard name={'Todo Champion'} img={todochampion} desc={'TodoChamption is a full stack web application where an user can signup and make their todos and do the CRUD operations. It provides authenticated session with the help of json web tokens.'} deploymentLink={"https://todomern-5kz3.onrender.com/"} githubLink={"https://github.com/RishiBakshii/TodoChampion-Mern"}/> */}
               </Grid>
 
               <Box>
