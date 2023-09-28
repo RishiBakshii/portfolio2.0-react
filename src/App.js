@@ -1,4 +1,3 @@
-import './App.css';
 import { Footer } from './components/Footer';
 import { Navbar } from './components/Navbar';
 import {Box,styled,Typography,Avatar,Stack,Grid, Button} from '@mui/material'
@@ -21,6 +20,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { TechStack } from './components/TechStack';
 
 
 const MainSection=styled('main')({
@@ -42,7 +42,6 @@ const HomeSection=styled('section')(({theme})=>({
   height:"90vh",
   padding:"2vw 6vw",
 }))
-
 
 const ContentBox=styled(Box)({
   display:"flex",
@@ -91,8 +90,6 @@ const ProjectSection=styled('section')(({theme})=>({
 
 
 function App() {
-  // const notLargeDevice=useMediaQuery((theme)=>theme.breakpoints.down('lg'))
-
   useEffect(()=>{
     VanillaTilt.init(document.querySelectorAll(".card"), {
         max: 25,
@@ -116,7 +113,7 @@ function App() {
           <Box textAlign={"center"}>
           <Typography data-aos={'fade'} data-aos-delay={1000} variant='h2'  fontWeight={900}>Hello I'm RishiBakshi</Typography>
           <Typography data-aos={'fade'} data-aos-delay={1800} gutterBottom variant='h3' fontWeight={300}>A Full stack developer/Data Scientist</Typography>
-          <Typography data-aos={'fade'} data-aos-delay={2000} variant='h5' fontWeight={100}>Developed and Launched my own Social Media</Typography>
+          <Typography data-aos={'fade'} data-aos-delay={2000} variant='h5' mt={3} fontWeight={200}>Developed and Launched my own Social Media</Typography>
           <Typography  variant='h6' fontWeight={900} color={"white"}><a style={{color:"white",textDecoration:"none"}} target='_blank' href='https://stangchat.com'>StangChat - A genz social media platform</a></Typography>
           {/* <Button variant='contained'>Know More</Button> */}
           </Box>                
@@ -151,6 +148,10 @@ function App() {
           <Stack flex={1.4} spacing={2}>
               
             <AboutCard heading={'Introduction'} animation={'fade'} delay={0} content={"Hello, I'm Rishi, a seasoned data scientist and software developer with over 2 years of hands-on experience in the world of data-driven solutions. My journey in this dynamic field has taken me through every stage of the data science lifecycle, from raw data to actionable insights. Let me take you through my diverse skill set and accomplishments"}/>  
+            
+            <Typography>
+              {/* <TechStack/> */}
+            </Typography>
             <AboutCard heading={'Data Science Expertise'} animation={'fade'} delay={0} content={"I excel in the meticulous art of data wrangling, transforming raw and messy data into structured gold. My proficiency in data cleaning and pre-processing ensures that every project begins with a solid foundation. Through exploratory data analysis (EDA), I unravel hidden patterns, outliers, and correlations that inform the direction of the project."}/>
             <AboutCard heading={"Feature Engineering and Modeling"} animation={'fade'} delay={0} content={"Crafting meaningful features is my forte. I specialize in innovative feature transformations and extractions that elevate model performance. My statistical modeling skills enable me to build predictive models that capture the essence of the underlying data distribution. I'm no stranger to the intricacies of hyperparameter tuning, ensuring that my models are finely tuned for optimal performance"}/>
             <AboutCard heading={"Project Portfolio"} animation={'fade'} delay={0} content={"I've conceptualized, developed, and deployed a range of end-to-end projects that showcase my capabilities. From a sophisticated movie recommendation system and sentiment analysis tool to practical solutions like laptop price prediction and student performance forecasting, I've turned complex concepts into user-friendly applications."}/>
@@ -160,7 +161,7 @@ function App() {
             <AboutCard heading={"Open For Collaborations"} animation={'fade'} delay={0} content={"Let's collaborate to turn ideas into reality. Feel free to reach out for discussions, collaborations, or just a friendly chat about the ever-evolving landscape of data science and technology. Feel free to personalize and adjust the content according to your actual experiences and preferences."}/>
 
 
-            <Typography data-aos={'fade'} paddingTop={3} fontWeight={400} variant='h1'>Take A look at my projects🎉</Typography>
+            <Typography data-aos={'fade'} paddingTop={3} fontWeight={100} variant='h1'>Take A look at my projects🎉</Typography>
           </Stack>
 
           
@@ -199,7 +200,7 @@ function App() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography variant='h4' fontWeight={400}>Authentication</Typography>
+          <Typography variant='h5' fontWeight={400}>Authentication</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Stack variant='h6' fontWeight={400} direction={'column'} spacing={3}>
@@ -261,8 +262,11 @@ function App() {
       <BasicAccordion heading={"Explore Page"} content={`Discover new content and expand your horizons with the Explore Page. Here, you can explore a diverse range of public posts, making it easy to find fresh perspectives and engage with a broader community.`}/>
       <BasicAccordion heading={'One-on-One Chat Functionality'} content={`StangChat values personal connections. With one-on-one chat functionality, you can have private conversations with other users, fostering genuine relationships within the community.`}/>
       <BasicAccordion heading={"Smart Chat Sorting"} content={"StangChat enhances your chat experience with intelligent sorting. Chats are ranked based on unread messages, ensuring that the conversations you need to catch up on are always at the top of your chat section. This feature streamlines your interactions and helps you stay organized."}/>
-  
-                </Stack>
+      <BasicAccordion heading={"Deployment on AWS Elastic Beanstalk"} content={"StangChat is hosted on AWS Elastic Beanstalk, a scalable and easy-to-manage Platform as a Service (PaaS) solution. This deployment choice ensures the platform's reliability and scalability, accommodating user growth and maintaining optimal performance."}/>
+      <BasicAccordion heading={'CI/CD Pipeline with AWS CodePipeline'} content={"To streamline the development process and ensure consistent quality, I've set up a Continuous Integration and Continuous Deployment (CI/CD) pipeline using AWS CodePipeline, seamlessly integrated with GitHub. This automation framework simplifies code changes, testing, and deployment, reducing manual interventions and minimizing the risk of errors. The integration with GitHub allows for efficient code versioning and management, making it easier to collaborate with other developers and maintain codebase integrity."}/>
+      <BasicAccordion heading={'Domain Integration via AWS Route 53'} content={`For a professional online presence, I've connected a custom domain name, acquired from Hostinger, to the StangChat environment using AWS Route 53. This integration not only enhances the platform's branding but also ensures users can easily access the website with a memorable and recognizable web address.`}/>  
+      <BasicAccordion heading={"Load Balancer for High Availability"} content={`StangChat benefits from the reliability and high availability provided by AWS Elastic Beanstalk's built-in load balancer. This load balancer distributes incoming traffic across multiple instances of the application, enhancing performance and fault tolerance.`}/>        
+      </Stack>
 
                 <Typography mt={5} variant='h6' fontWeight={400}>
         These features collectively create a dynamic, engaging, and user-centric environment on StangChat, where users can freely express themselves, connect with others, and discover content that resonates with their interests. StangChat is more than just a social media platform; it's a vibrant and interactive community that values user experiences and connections."
@@ -275,9 +279,8 @@ function App() {
                 {/* <ProjectCard name={'Todo Champion'} img={todochampion} desc={'TodoChamption is a full stack web application where an user can signup and make their todos and do the CRUD operations. It provides authenticated session with the help of json web tokens.'} deploymentLink={"https://todomern-5kz3.onrender.com/"} githubLink={"https://github.com/RishiBakshii/TodoChampion-Mern"}/> */}
               </Grid>
 
-              <Box>
-
-              <Typography gutterBottom mt={15} variant='h3' fontWeight={900} data-aos={'fade'}>Data Driven Apps- ML DL</Typography>
+              <Box justifySelf={'center'} alignSelf={'center'}>
+                <Typography gutterBottom mt={25} variant='h1' fontWeight={300} data-aos={'fade'}>Machine Learning-Driven Solutions</Typography>
               </Box>
 
               <Grid mt={10} container gap={4} justifyContent={'center'} alignContent={'center'}>

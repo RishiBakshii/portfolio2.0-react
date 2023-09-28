@@ -15,7 +15,7 @@ export default function BasicAccordion({heading,content}) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography variant='h4' fontWeight={400}>{heading}</Typography>
+          <Typography variant='h5' fontWeight={400}>{heading}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography variant='h6' fontWeight={400}>

@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { Box, styled,Typography } from "@mui/material";
 import Aos from "aos";
 import 'aos/dist/aos.css'
+import { TechStack } from "./TechStack";
 
 const CustomComponent = styled(Box)({
   padding: "2.2rem",
