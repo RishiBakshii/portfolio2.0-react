@@ -1,15 +1,14 @@
 import { Footer } from './components/Footer';
 import { Navbar } from './components/Navbar';
-import {Box,styled,Typography,Avatar,Stack,Grid, Button} from '@mui/material'
+import {Box,styled,Typography,Avatar,Stack,Grid} from '@mui/material'
 import close from './assets/close.jpg'
 import Lottie from 'lottie-react'
 import { useEffect} from 'react';
-import { TimelineMui } from './components/TimelineMui';
+import {TimelineComponent} from './components/TimelineMui'
 import { ImageListMui } from './components/ImageListMui';
 import VanillaTilt from 'vanilla-tilt'
 import { ProjectCard } from './components/ProjectCard';
 import { AboutCard } from './components/AboutCard';
-import todochampion from './assets/projectImages/todochampion.png'
 import Aos from 'aos';
 import 'aos/dist/aos.css'
 import goDownMouseWhite from './assets/animations/goDownMouseWhite.json'
@@ -20,7 +19,6 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { TechStack } from './components/TechStack';
 
 
 const MainSection=styled('main')({
@@ -74,7 +72,7 @@ const AboutSection=styled("section")(({theme})=>({
   padding:"2rem 6vw",
   [theme.breakpoints.down("lg")]:{
     flexDirection:"column"
-  }
+  },
 }))
 
 const ProjectSection=styled('section')(({theme})=>({
@@ -112,7 +110,7 @@ function App() {
           <Avatar data-aos={'fade'} data-aos-delay={500}  alt="RishiBakshi-photo" src={`${close}`} sx={{ height:"10rem",width:"10rem",marginBottom:"2rem",boxShadow:"0 0 1rem 1px white"}}/>
           <Box textAlign={"center"}>
           <Typography data-aos={'fade'} data-aos-delay={1000} variant='h2'  fontWeight={900}>Hello I'm RishiBakshi</Typography>
-          <Typography data-aos={'fade'} data-aos-delay={1800} gutterBottom variant='h3' fontWeight={300}>A Full stack developer/Data Scientist</Typography>
+          <Typography data-aos={'fade'} data-aos-delay={1800} gutterBottom variant='h3' fontWeight={300}>Full stack developer/Data Scientist</Typography>
           <Typography data-aos={'fade'} data-aos-delay={2000} variant='h5' mt={3} fontWeight={200}>Developed and Launched my own Social Media</Typography>
           <Typography  variant='h6' fontWeight={900} color={"white"}><a style={{color:"white",textDecoration:"none"}} target='_blank' href='https://stangchat.com'>StangChat - A genz social media platform</a></Typography>
           {/* <Button variant='contained'>Know More</Button> */}
@@ -134,34 +132,36 @@ function App() {
             
             {/* heading */}
             <Stack flex={1}   justifyContent={'center'} alignItems={"center"}>
-
                 <Typography data-aos={'fade'} gutterBottom mt={15} variant='h3' fontWeight={900}>Know About Me</Typography>
-
                   <Box data-aos='flip-left'> 
-                    <TimelineMui/>
+                    <TimelineComponent/>
                   </Box>
-
-
             </Stack>
 
             {/* about cards  */}
           <Stack flex={1.4} spacing={2}>
               
-            <AboutCard heading={'Introduction'} animation={'fade'} delay={0} content={"Hello, I'm Rishi, a seasoned data scientist and software developer with over 2 years of hands-on experience in the world of data-driven solutions. My journey in this dynamic field has taken me through every stage of the data science lifecycle, from raw data to actionable insights. Let me take you through my diverse skill set and accomplishments"}/>  
-            
-            <Typography>
-              {/* <TechStack/> */}
-            </Typography>
+            {/* <AboutCard heading={'Introduction'} animation={'fade'} delay={0} content={"Hello, I'm Rishi, a seasoned data scientist and software developer with over 2 years of hands-on experience in the world of data-driven solutions. My journey in this dynamic field has taken me through every stage of the data science lifecycle, from raw data to actionable insights. Let me take you through my diverse skill set and accomplishments"}/>  
             <AboutCard heading={'Data Science Expertise'} animation={'fade'} delay={0} content={"I excel in the meticulous art of data wrangling, transforming raw and messy data into structured gold. My proficiency in data cleaning and pre-processing ensures that every project begins with a solid foundation. Through exploratory data analysis (EDA), I unravel hidden patterns, outliers, and correlations that inform the direction of the project."}/>
             <AboutCard heading={"Feature Engineering and Modeling"} animation={'fade'} delay={0} content={"Crafting meaningful features is my forte. I specialize in innovative feature transformations and extractions that elevate model performance. My statistical modeling skills enable me to build predictive models that capture the essence of the underlying data distribution. I'm no stranger to the intricacies of hyperparameter tuning, ensuring that my models are finely tuned for optimal performance"}/>
             <AboutCard heading={"Project Portfolio"} animation={'fade'} delay={0} content={"I've conceptualized, developed, and deployed a range of end-to-end projects that showcase my capabilities. From a sophisticated movie recommendation system and sentiment analysis tool to practical solutions like laptop price prediction and student performance forecasting, I've turned complex concepts into user-friendly applications."}/>
             <AboutCard heading={"Versatile Software Developer"} animation={'fade'} delay={0} content={"My skills extend beyond data science. I possess a deep understanding of HTML, CSS, and JavaScript, enabling me to craft interactive and visually appealing front-end experiences. My proficiency in React and React Material-UI (MUI) ensures that user interfaces are modern, intuitive, and responsive."}/>
             <AboutCard heading={"Backend Mastery"} animation={'fade'} delay={0} content={"In the backend realm, I'm well-versed in a variety of technologies, including Flask, Django, and Express. I seamlessly integrate these frameworks to bring life to my applications. My expertise extends to databases like MongoDB, MySQL, and PostgreSQL, ensuring that data storage and retrieval are efficient and secure."}/>
             <AboutCard heading={"AI and Deep Learning"} animation={'fade'} delay={0} content={`I've delved into the world of deep learning and neural networks, harnessing the power of AI for complex tasks. My grasp of neural network architectures empowers me to tackle intricate problems, from image recognition to natural language processing. My passion for data-driven insights, combined with my proficiency in software development, has shaped me into a well-rounded professional. I thrive on challenges, relentlessly pursuing excellence in every project I undertake. Whether it's extracting knowledge from data, crafting elegant user interfaces, or implementing robust backend systems, I'm always eager to explore new horizons and create meaningful solutions.`}/>
-            <AboutCard heading={"Open For Collaborations"} animation={'fade'} delay={0} content={"Let's collaborate to turn ideas into reality. Feel free to reach out for discussions, collaborations, or just a friendly chat about the ever-evolving landscape of data science and technology. Feel free to personalize and adjust the content according to your actual experiences and preferences."}/>
+            <AboutCard heading={"Open For Collaborations"} animation={'fade'} delay={0} content={"Let's collaborate to turn ideas into reality. Feel free to reach out for discussions, collaborations, or just a friendly chat about the ever-evolving landscape of data science and technology. Feel free to personalize and adjust the content according to your actual experiences and preferences."}/> */}
 
 
-            <Typography data-aos={'fade'} paddingTop={3} fontWeight={100} variant='h1'>Take A look at my projects🎉</Typography>
+            <AboutCard animation={"fade"} heading={'Introduction'} content={` I'm Rishi Bakshi, a versatile software developer who specializes in crafting full-stack applications, mobile apps, and data-driven solutions. With over 2 years of hands-on experience, I'm deeply passionate about the world of technology. From creating captivating user interfaces to diving into the realms of data science, machine learning, artificial intelligence, and deep learning, I'm dedicated to building innovative solutions that make a difference. My journey is marked by a relentless pursuit of knowledge, coding incessantly, and creating something new every day.`}/>
+            <AboutCard heading={'Data Science Expertise'} content={`In the realm of data science, I possess a wide skill set that includes machine learning algorithms, deep learning neural networks, and natural language processing. My expertise in these areas allows me to tackle complex data-driven challenges effectively.`}/>
+              {/* <AboutCard heading={'What Makes me versatile'}/> */}
+            
+            <Box sx={{padding:'2rem 4vw'}} data-aos={'fade-up'}>
+              <Typography variant='h2'>What Makes me Versatile</Typography>
+            </Box>
+            
+            <AboutCard heading={"Full Stack Development"} content={`I have a strong command of full-stack development, allowing me to create complex web applications with user-friendly and modern interfaces. My skills cover both the front-end and back-end aspects, ensuring a seamless and interactive user experience.`}/>
+            <AboutCard heading={'React Native Proficiency'} content={`I'm well-versed in React Native, enabling me to develop mobile applications that run smoothly on various platforms. This versatility across web and mobile development positions me to tackle a wide range of projects effectively.`}/>
+            <Typography data-aos={'fade-down'} paddingTop={3} fontWeight={100} variant='h1'>Take A look at my projects🎉</Typography>
           </Stack>
 
           
@@ -176,13 +176,13 @@ function App() {
                 {/* <Typography gutterBottom mt={15} variant='h2' fontWeight={900} data-aos={'fade'}>My Latest Work</Typography> */}
               </Box>
               <Box justifySelf={'center'} alignSelf={'center'}>
-                <Typography gutterBottom mt={25} variant='h1' fontWeight={300} data-aos={'fade'}>Full Stack Web applications</Typography>
+                <Typography gutterBottom mt={25} variant='h1' fontWeight={300} data-aos={'fade-down'}>Full Stack Web applications</Typography>
               </Box>
 
               <Stack mt={15} width={"100%"} direction={'column'} justifyContent={'space-evenly'} alignItems={'center'}>
 
                 {/* logo area */}
-                <Stack justifyContent={'center'} alignItems={'center'} direction={'column'}>
+                <Stack justifyContent={'center'} alignItems={'center'} direction={'column'} data-aos={"fade-up"}>
                   <img height={'200px'} src={logo512} alt="stangchat Logo" />
                   <Typography mt={1} fontWeight={300} variant='h4'>StangChat</Typography>
                 </Stack>
@@ -190,7 +190,7 @@ function App() {
                 {/* content part */}
                 <Stack spacing={1} mt={5} bgcolor={theme.palette.primary.main} width={"100%"} justifySelf={'flex-start'} alignSelf={'flex-start'}>
                   {/* <Typography fontWeight={'600'} variant='h4'>What is StangChat?</Typography> */}
-                  <BasicAccordion heading={'What is StangChat'} content={`StangChat is an innovative social media platform that I had the privilege to develop and found. It's a comprehensive full-stack web application that leverages Flask for its robust backend and React for an intuitive frontend user experience`}/>
+                  <BasicAccordion data-aos={"fade-up"} heading={'What is StangChat'} content={`StangChat is an innovative social media platform that I had the privilege to develop and found. It's a comprehensive full-stack web application that leverages Flask for its robust backend and React for an intuitive frontend user experience`}/>
                   
 
 
@@ -283,7 +283,7 @@ function App() {
                 <Typography gutterBottom mt={25} variant='h1' fontWeight={300} data-aos={'fade'}>Machine Learning-Driven Solutions</Typography>
               </Box>
 
-              <Grid mt={10} container gap={4} justifyContent={'center'} alignContent={'center'}>
+              <Grid mt={10} container gap={4} justifyContent={'center'} alignContent={'center'} data-aos={"fade-up"}>
                 <ProjectCard name={"Movie Recommender System"} img={"https://github.com/RishiBakshii/Movie-Recommender-System/blob/main/backend/static/Images/ui%20image%201.png?raw=true"} desc={'Flickfinder -MovieMatch is a movie recommendation webapp where one can choose from a list of 5000 movies and based on selection this will recommend you 5 movies followed by their details and starcast'} githubLink={"https://github.com/RishiBakshii/Movie-Recommender-System"} deploymentLink={'https://github.com/RishiBakshii/Movie-Recommender-System'}/>
                 <ProjectCard name={'Bike Price Prediction'} img={"https://rishibakshii.github.io/portfolio/assets/project-Covers/Your%20paragraph%20text%20(2).png"} desc={"A Flask Web application powered by XGBoost that predicts the prices of Bikes at an accuracy of 93%"} githubLink={"https://github.com/RishiBakshii/Bike-Price-Predictor"} deploymentLink={"https://bike-price-predictor.onrender.com/"}/>
                 <ProjectCard name={'Laptop Price Predictor'} img={"https://rishibakshii.github.io/portfolio/assets/project-Covers/LAPTOP%20PRICE%20PREDICTOR.png"} desc={"A Flask Powered Web Application which predicts the price of a laptop based on different configurations"} githubLink={"https://github.com/RishiBakshii/Laptop-Price-Predictor"} deploymentLink={"https://laptop-price-predictor-plkk.onrender.com/"}/>

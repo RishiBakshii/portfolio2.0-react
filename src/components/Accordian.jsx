@@ -9,7 +9,7 @@ import theme from '../theme';
 export default function BasicAccordion({heading,content}) {
   return (
     <>
-      <Accordion  sx={{bgcolor:theme.palette.secondary.main,color:"white"}}>
+      <Accordion sx={{bgcolor:theme.palette.secondary.main,color:"white"}}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon sx={{"color":'white'}} />}
           aria-controls="panel1a-content"

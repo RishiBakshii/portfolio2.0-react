@@ -23,7 +23,7 @@ export const AboutCard = ({ heading, content,animation,delay}) => {
       <Typography gutterBottom variant="h3">
         {heading}
       </Typography>
-      <Typography lineHeight={"1.8rem"} fontSize={"1.2rem"} variant="body1">
+      <Typography lineHeight={"2rem"} fontSize={"1.2rem"} fontWeight={300} variant="body1">
         {content}
       </Typography>
     </CustomComponent>
